@@ -1,0 +1,58 @@
+@using Umbraco.Cms.Core.Models.PublishedContent
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@Model.Value("PageTitle") - AutoLux</title>
+
+    <link rel="stylesheet" href="wwwroot/Css.css" />
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="site-header">
+
+        <div class="container navigation">
+
+            <div class="logo">
+                AutoLux
+            </div>
+
+            <nav>
+                <a href="/">Home</a>
+                <a href="/#featured">Cars</a>
+                <a href="/#about">About</a>
+                <a href="/#contact">Contact</a>
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    @RenderBody()
+
+
+    <!-- Footer -->
+    <footer class="site-footer" id="contact">
+
+        <div class="container">
+
+            <p>
+                © 2026 AutoLux. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

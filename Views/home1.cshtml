@@ -1,0 +1,122 @@
+﻿@using Umbraco.Cms.Core.Models.PublishedContent
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+@{
+    Layout = "_Layout";
+
+    var headerImage = Model.Value<IPublishedContent>("HeaderImage");
+    var headerLink = Model.Value<IPublishedContent>("HeaderLink");
+}
+<link rel="stylesheet" href="Css.css" />
+
+<!-- Header -->
+<section class="Header">
+
+    @if (headerImage != null)
+    {
+        <img src="@headerImage.Url()"
+             alt="@Model.Value("PageTitle")"
+             class="Header-image" />
+    }
+
+    <div class="Header-overlay">
+
+        <div class="Header-content">
+
+            <h1>
+                @Model.Value("PageTitle")
+            </h1>
+
+            <p>
+                @Model.Value("HeaderText")
+            </p>
+
+            @if (headerLink != null)
+            {
+                <a href="@headerLink.Url()"
+                   class="button">
+                    @Model.Value("HeaderButton")
+                </a>
+            }
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Featured Cars -->
+<section class="featured-section" id="featured">
+
+    <div class="container">
+
+        <h2>
+            Featured Cars
+        </h2>
+
+        <p class="section-intro">
+            Discover some of our most popular vehicles.
+        </p>
+
+        <div class="car-grid">
+
+            @foreach (var car in Model.Children())
+{
+    var carImage = car.Value<IPublishedContent>("CarImage");
+
+    <div class="car-card">
+
+        @if (carImage != null)
+        {
+            <img src="@carImage.Url()"
+                 alt="@car.Value("CarName")"
+                 class="car-image" />
+        }
+        else
+        {
+            <p>NO IMAGE FOUND</p>
+        }
+
+        <div class="car-card-content">
+
+            <h3>
+                @car.Value("CarName")
+            </h3>
+
+            <p>
+                @car.Value("Brand") @car.Value("Model")
+            </p>
+
+            <p>
+                Year: @car.Value("Year")
+            </p>
+
+            <p class="car-price">
+                €@car.Value("Price")
+            </p>
+
+        </div>
+
+    </div>
+}
+</section>
+
+
+<!-- About -->
+<section class="featured-section" id="about">
+
+    <div class="container">
+
+        <h2>
+            About AutoLux
+        </h2>
+
+        <p class="section-intro">
+            AutoLux provides a selection of quality vehicles
+            for customers looking for their next car.
+        </p>
+
+    </div>
+
+</section>
