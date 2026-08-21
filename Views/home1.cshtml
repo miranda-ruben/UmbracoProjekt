@@ -65,40 +65,40 @@
 {
     var carImage = car.Value<IPublishedContent>("CarImage");
 
-    <div class="car-card">
+    <a href="@car.Url()" class="car-card">
 
-        @if (carImage != null)
-        {
-            <img src="@carImage.Url()"
-                 alt="@car.Value("CarName")"
-                 class="car-image" />
-        }
-        else
-        {
-            <p>NO IMAGE FOUND</p>
-        }
+    @if (carImage != null)
+    {
+        <img src="@carImage.Url()"
+             alt="@car.Value("CarName")"
+             class="car-image" />
+    }
 
-        <div class="car-card-content">
+    <div class="car-card-content">
 
-            <h3>
-                @car.Value("CarName")
-            </h3>
+        <h3>
+            @car.Value("CarName")
+        </h3>
 
-            <p>
-                @car.Value("Brand") @car.Value("Model")
-            </p>
+        <p>
+            @car.Value("Brand") @car.Value("Model")
+        </p>
 
-            <p>
-                Year: @car.Value("Year")
-            </p>
+        <p>
+            Year: @car.Value("Year")
+        </p>
 
-            <p class="car-price">
-                €@car.Value("Price")
-            </p>
+        <p class="car-price">
+            €@car.Value("Price")
+        </p>
 
-        </div>
+        <span class="button">
+            View Details
+        </span>
 
     </div>
+
+</a>
 }
 </section>
 

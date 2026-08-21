@@ -1,0 +1,126 @@
+﻿@using Umbraco.Cms.Core.Models.PublishedContent
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+@{
+    Layout = null;
+
+    var carImage = Model.Value<IPublishedContent>("CarImage");
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>
+        @Model.Value("CarName") - AutoLux
+    </title>
+
+    <link rel="stylesheet" href="Css.css" />
+
+
+</head>
+
+<body>
+
+    <header class="site-header">
+
+        <div class="container navigation">
+
+            <a href="/" class="logo">
+                AutoLux
+            </a>
+
+            <nav>
+
+                <a href="/">
+                    Home
+                </a>
+
+                <a href="/#featured">
+                    Views
+                </a>
+
+                <a href="/#about">
+                    About
+                </a>
+
+                <a href="/#contact">
+                    Contact
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <section class="car-detail">
+
+        <div class="container">
+
+            <div class="car-detail-grid">
+
+                <div class="car-detail-image">
+
+                    @if (carImage != null)
+                    {
+                        <img src="@carImage.Url()"
+                             alt="@Model.Value("CarName")" />
+                    }
+
+                </div>
+
+
+                <div class="car-detail-content">
+
+                    <h1>
+                        @Model.Value("CarName")
+                    </h1>
+
+                    <p class="car-detail-brand">
+                        @Model.Value("Brand") @Model.Value("Model")
+                    </p>
+
+                    <p>
+                        <strong>Year:</strong>
+                        @Model.Value("Year")
+                    </p>
+
+                    <p class="car-detail-price">
+                        €@Model.Value("Price")
+                    </p>
+
+                    <a href="/#featured" class="button">
+                        Back to Cars
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <p>
+                © 2026 AutoLux. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
