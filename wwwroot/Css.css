@@ -317,6 +317,18 @@ a {
     .featured-section {
         padding: 60px 0;
     }
+        .car-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .car-detail-image img {
+        height: 300px;
+    }
+
+    .car-detail-content h1 {
+        font-size: 32px;
+    }
 }
 /* ==============================
    CAR DETAIL
@@ -368,3 +380,4 @@ a {
 .car-detail-content .button {
     margin-top: 20px;
 }
+
