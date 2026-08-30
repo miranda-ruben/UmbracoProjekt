@@ -5,6 +5,7 @@
     Layout = null;
 
     var carImage = Model.Value<IPublishedContent>("CarImage");
+    var bought = Context.Request.Query["bought"] == "true";
 }
 
 <!DOCTYPE html>
@@ -93,12 +94,23 @@
                     </p>
 
                     <p class="car-detail-price">
-                        €@Model.Value("Price")
+                        @Model.Value("Price")€
                     </p>
+
+                    <a href="?bought=true" class="button">
+                        Buy This Car
+                    </a>
 
                     <a href="/#featured" class="button">
                         Back to Cars
                     </a>
+
+         @if (bought)
+                {
+                    <p class="purchase-message">
+                        Congratulations! You successfully bought this car!
+                    </p>
+                }
 
 
                 </div>
